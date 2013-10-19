@@ -20,4 +20,10 @@ class TestCaseAPI < Test::Unit::TestCase
     assert_equal('London', results[:city][:name], 'Should be London')
     assert_equal(7, results[:list].size, 'This should be 7 days forecast')
   end
+
+  def test_find
+    results = @client.find(q: 'London,UK')
+    assert(results[:list].size > 0, 'There should be at least one result')
+    assert_equal('London', results[:list][0][:name], 'Should be London')
+  end
 end

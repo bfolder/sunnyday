@@ -6,8 +6,8 @@ module SunnyDay
   class Client
     attr_accessor :config
 
-    def initialize(config)
-      @config = config
+    def initialize(config = nil)
+      @config = config.nil? ? SunnyDay::Configuration.new : config
     end
 
     def configure
@@ -25,6 +25,10 @@ module SunnyDay
 
     def daily_forecast(options = {})
       call('forecast/daily', options)
+    end
+
+    def find(options = {})
+      call('find', options)
     end
 
   private
