@@ -34,6 +34,7 @@ module SunnyDay
     def call(path, options = {})
       options.delete(:mode) if options.has_key?(:mode)
       uri = "/data/#{@config.api_version}/#{full_path(path, options)}language=#{@config.language}"
+      puts uri
       uri.concat("&units=#{@config.units}") unless @config.units.nil?
       uri.concat("&APPID=#{@config.app_id}") unless @config.app_id.nil?
       response = Net::HTTP.get_response(BASE_URL, uri)
