@@ -6,7 +6,7 @@ module SunnyDay
     attr_accessor :client
 
     def client(options = {})
-      @client ||= SunnyDay::Client.new(SunnyDay::Configuration.new(options))
+      @client = SunnyDay::Client.new(SunnyDay::Configuration.new(options))
     end
   end
 end

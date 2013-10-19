@@ -1,5 +1,5 @@
 module SunnyDay
-  BASE_URL = 'http://api.openweathermap.org/data/'
+  BASE_URL = 'api.openweathermap.org'
 
   class Configuration
     # App id. Default none.
@@ -16,12 +16,12 @@ module SunnyDay
 
     def initialize(options = {})
       options.each_key do |key|
-        instance_variable_set(key, options[key])
+        instance_variable_set("@#{key}", options[key])
       end
 
-      api_version ||= '2.5'
-      units ||= 'metric'
-      language ||= 'en'
+      @api_version ||= '2.5'
+      @units ||= 'metric'
+      @language ||= 'en'
     end
   end
 end
