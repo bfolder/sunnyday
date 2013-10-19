@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require '../sunnyday/configuration'
 
 module SunnyDay
   class Client

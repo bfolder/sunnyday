@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../sunnyday'
+require 'sunnyday'
 
 require_relative 'api_test'
 

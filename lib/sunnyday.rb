@@ -1,5 +1,5 @@
-require '../sunnyday/client'
-require '../sunnyday/configuration'
+require 'sunnyday/configuration'
+require 'sunnyday/client'
 
 module SunnyDay
   class << self
