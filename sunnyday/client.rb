@@ -1,13 +1,13 @@
 module SunnyDay
   class Client
-    attr_accessor :app_id
+    attr_accessor :config
 
-    def initialize(app_id = nil)
-      @app_id = app_id
+    def initialize(configuration)
+      @config ||= configuration
     end
 
     def configure
-      yield(self) if block_given?
+      yield(@config) if block_given?
     end
   end
 end
