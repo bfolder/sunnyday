@@ -1,4 +1,5 @@
 require 'thor'
+require 'output'
 
 module SunnyDay
   class CLI < Thor
@@ -9,13 +10,15 @@ module SunnyDay
     desc 'weather <city>', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def weather(city = nil)
       return unless validate(city)
-      client.current_weather(options)
+      data = client.current_weather(options)
+      SunnyDay::Output.new.weather(data)
     end
 
     desc 'forecast <city>', 'Retrieves current forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def forecast(city = nil)
       return unless validate(city)
-      client.forecast(w_options(city))
+      data = client.forecast(w_options(city))
+      SunnyDay::Output.new.forecast(data)
     end
 
     desc 'd_forecast <days> <city>', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
@@ -24,7 +27,8 @@ module SunnyDay
       return unless validate(city)
       opts = w_options(city)
       opts[:cnt] = days
-      client.forecast(opts)
+      client.daily_forecast(opts)
+      SunnyDay::Output.new.daily_forecast(data)
     end
 
     option :limit, :type => :numeric
@@ -35,6 +39,7 @@ module SunnyDay
       opts[:cnt] = options[:limit]
       opts.delete(:limit) if opts.has_key?(:limit)
       client.find(opts)
+      SunnyDay::Output.new.find(data)
     end
 
     private

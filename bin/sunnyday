@@ -4,6 +4,6 @@ lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'sunnyday'
-require 'sunnyday/cli'
+require 'sunnyday/cli/cli'
 
 SunnyDay::CLI.start(ARGV)
