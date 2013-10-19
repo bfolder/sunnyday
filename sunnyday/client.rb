@@ -27,7 +27,7 @@ module SunnyDay
       call_method('forecast/daily', options)
     end
 
-    private
+  private
 
     def call_method(path, options = {})
       options.delete(:mode) if options.has_key?(:mode)
