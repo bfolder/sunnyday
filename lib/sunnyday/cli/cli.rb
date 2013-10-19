@@ -1,5 +1,5 @@
 require 'thor'
-require 'output'
+require 'sunnyday/cli/output'
 
 module SunnyDay
   class CLI < Thor
