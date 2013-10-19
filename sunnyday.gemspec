@@ -1,3 +1,5 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 require "sunnyday/version"  
 
 Gem::Specification.new do |s|
