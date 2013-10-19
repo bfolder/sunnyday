@@ -15,33 +15,40 @@ module SunnyDay
     desc 'forecast <city>', 'Retrieves current forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def forecast(city = nil)
       return unless validate(city)
-      client.forecast(options)
+      client.forecast(w_options)
     end
 
     desc 'd_forecast <days> <city>', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
 
     def d_forecast(days, city = nil)
       return unless validate(city)
-      options[:cnt] = days
-      client.forecast(options)
+      opts = w_options
+      opts[:cnt] = days
+      client.forecast(opts)
     end
 
     option :limit, :type => :numeric
     desc 'find  <city> --limit', 'Searching for city. You can provide a city name (standard) or latitude and longitude.'
     def find(city = nil)
       return unless validate(city)
-      options[:cnt] = options[:limit]
-      options.delete(:limit) if options.has_key?(:limit)
-      client.find(options)
+      opts = w_options
+      opts[:cnt] = options[:limit]
+      opts.delete(:limit) if opts.has_key?(:limit)
+      client.find(opts)
     end
 
     private
 
     def validate(city)
       valid = !city.nil? || (!options[:lat].nil? && !options[:long].nil?) || !options[:id].nil?
-      puts 'Sorry, your input doesn\’t appear to be valid.' unless valid
-      options[:d] = city unless city.nil?
+      puts 'Sorry, your input doesn’t appear to be valid. Use "sunnyday help" for available options.' unless valid
       valid
+    end
+
+    def w_options
+      opts = options.dup
+      opts[:d] = city unless city.nil?
+      opts
     end
 
     def client(config = {})
