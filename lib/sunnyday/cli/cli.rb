@@ -52,7 +52,7 @@ module SunnyDay
 
     def w_options(city)
       opts = options.dup
-      opts[:d] = city unless city.nil?
+      opts[:q] = city unless city.nil?
       opts
     end
 
