@@ -6,19 +6,19 @@ module SunnyDay
     class_option :long, :type => :numeric
     class_option :id, :type => :numeric
 
-    desc 'weather <city> --lat \'latitude\' --long \’longitude\’ --id \’city id\’', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
+    desc 'weather <city>', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def weather(city = nil)
       return unless validate(city)
       client.weather(options)
     end
 
-    desc 'forecast <city> --lat \'latitude\' --long \’longitude\’ --id \’city id\’', 'Retrieves current forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
+    desc 'forecast <city>', 'Retrieves current forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def forecast(city = nil)
       return unless validate(city)
       client.forecast(options)
     end
 
-    desc 'd_forecast <days> <city> --lat \'latitude\' --long \’longitude\’ --id \’city id\’', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
+    desc 'd_forecast <days> <city>', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def d_forecast(days, city = nil)
       return unless validate(city)
       options[:cnt] = days
@@ -26,7 +26,7 @@ module SunnyDay
     end
 
     option :limit, :type => :numeric
-    desc 'find  <city> --limit \'limite results\' --lat \'latitude\' --long \’longitude\’', 'Searching for city. You can provide a city name (standard) or latitude and longitude.'
+    desc 'find  <city> --limit', 'Searching for city. You can provide a city name (standard) or latitude and longitude.'
     def find(city = nil)
       return unless validate(city)
       options[:cnt] = options[:limit]
