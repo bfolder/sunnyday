@@ -8,7 +8,7 @@ module SunnyDay
     # API version. Default 2.5.
     attr_accessor :api_version
 
-    # Language
+    # Language. Default 'en'
     attr_accessor :language
 
     # Units - 'metric' or 'imperial'. Default metric.
@@ -19,8 +19,9 @@ module SunnyDay
         instance_variable_set(key, options[key])
       end
 
-      api_version = '2.5'
-      units = 'metric'
+      api_version ||= '2.5'
+      units ||= 'metric'
+      language ||= 'en'
     end
   end
 end
