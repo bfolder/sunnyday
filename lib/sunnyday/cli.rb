@@ -2,9 +2,9 @@ require 'thor'
 
 module SunnyDay
   class CLI < Thor
-    class_option :lat, :type => :Float
-    class_option :long, :type => :Float
-    class_option :id, :type => :Integer
+    class_option :lat, :type => :numeric
+    class_option :long, :type => :numeric
+    class_option :id, :type => :numeric
 
     desc 'weather <city> --lat \'latitude\' --long \’longitude\’ --id \’city id\’', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def weather(city = nil)
