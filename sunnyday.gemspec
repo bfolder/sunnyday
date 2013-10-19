@@ -1,14 +1,14 @@
-$:.push File.expand_path("../lib", __FILE__)
-require "sunnyday/version"  
+$:.push File.expand_path('../lib', __FILE__)
+require 'sunnyday/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY  
   s.name        = 'sunnyday'
   s.version     = SunnyDay::VERSION
   s.date        = '2013-10-19'
-  s.summary     = "Sunnyday is a wrapper around the OpenWeatherMap api (openweathermap.com)"
-  s.description = "The OpenWeatherMap service provides free weather data. This gem is a wrapper around the public api. Visit openweathermap.com for more details."
-  s.authors     = ["Heiko Dreyer"]
+  s.summary     = 'Sunnyday is a wrapper around the OpenWeatherMap api (openweathermap.com)'
+  s.description = 'The OpenWeatherMap service provides free weather data. This gem is a wrapper around the public api. Visit openweathermap.com for more details.'
+  s.authors     = ['Heiko Dreyer']
   s.email       = 'heiko@boxedfolder.com'
   s.homepage    = 'http://github.com/bfolder/sunnyday'
   s.license       = 'MIT'
