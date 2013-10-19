@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
   s.description = "The OpenWeatherMap service provides free weather data. This gem is a wrapper around the public api. Visit openweathermap.com for more details."
   s.authors     = ["Heiko Dreyer"]
   s.email       = 'heiko@boxedfolder.com'
-  s.files       = ["lib/sunnyday.rb"]
   s.homepage    = 'http://github.com/bfolder/sunnyday'
   s.license       = 'MIT'
   
