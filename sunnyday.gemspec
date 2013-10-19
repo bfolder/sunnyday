@@ -1,5 +1,4 @@
 $:.push File.expand_path("../lib", __FILE__)
-
 require "sunnyday/version"  
 
 Gem::Specification.new do |s|
@@ -16,8 +15,8 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
   
   s.files         = `git ls-files`.split($/)
-  s.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files    = spec.files.grep(%r{^(test)/})
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 1.8.7'
   s.add_dependency 'multi_json'
