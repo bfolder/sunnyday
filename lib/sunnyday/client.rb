@@ -19,7 +19,6 @@ module SunnyDay
 
     def forecast(options = {})
       call('forecast', options)
-
     end
 
     def daily_forecast(options = {})

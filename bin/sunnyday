@@ -6,4 +6,4 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sunnyday'
 require 'sunnyday/cli'
 
-SunnyDay::Cli.start
+SunnyDay::CLI.start

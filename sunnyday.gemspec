@@ -19,6 +19,5 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 1.8.7'
-  s.add_dependency 'multi_json'
   s.add_dependency 'thor'
 end
