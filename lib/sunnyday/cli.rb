@@ -25,7 +25,7 @@ module SunnyDay
       client.forecast(options)
     end
 
-    option :limit, :type => :Integer
+    option :limit, :type => :numeric
     desc 'find  <city> --limit \'limite results\' --lat \'latitude\' --long \’longitude\’', 'Searching for city. You can provide a city name (standard) or latitude and longitude.'
     def find(city = nil)
       return unless validate(city)
