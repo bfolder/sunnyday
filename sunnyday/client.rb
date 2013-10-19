@@ -6,8 +6,8 @@ module SunnyDay
   class Client
     attr_accessor :config
 
-    def initialize(configuration)
-      @config = configuration
+    def initialize(config)
+      @config = config
     end
 
     def configure
