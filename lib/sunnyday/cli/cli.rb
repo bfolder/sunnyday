@@ -10,7 +10,7 @@ module SunnyDay
     desc 'weather <city>', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def weather(city = nil)
       return unless validate(city)
-      data = client.current_weather(options)
+      data = client.current_weather(w_options(city))
       SunnyDay::Output.new.weather(data)
     end
 
@@ -27,7 +27,7 @@ module SunnyDay
       return unless validate(city)
       opts = w_options(city)
       opts[:cnt] = days
-      client.daily_forecast(opts)
+      data = client.daily_forecast(opts)
       SunnyDay::Output.new.daily_forecast(data)
     end
 
@@ -38,7 +38,7 @@ module SunnyDay
       opts = w_options(city)
       opts[:cnt] = options[:limit]
       opts.delete(:limit) if opts.has_key?(:limit)
-      client.find(opts)
+      data = client.find(opts)
       SunnyDay::Output.new.find(data)
     end
 
