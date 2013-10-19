@@ -20,7 +20,6 @@ module SunnyDay
       end
 
       @api_version ||= '2.5'
-      @units ||= 'metric'
       @language ||= 'en'
     end
   end
