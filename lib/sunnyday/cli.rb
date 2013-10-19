@@ -19,6 +19,7 @@ module SunnyDay
     end
 
     desc 'd_forecast <days> <city>', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
+
     def d_forecast(days, city = nil)
       return unless validate(city)
       options[:cnt] = days
@@ -37,7 +38,7 @@ module SunnyDay
     private
 
     def validate(city)
-      valid = !city.nil? || (!options[:lat].nil? && !options[:long].nil?) || !option[:id].nil?
+      valid = !city.nil? || (!options[:lat].nil? && !options[:long].nil?) || !options[:id].nil?
       puts 'Sorry, your input doesn\’t appear to be valid.' unless valid
       options[:d] = city unless city.nil?
       valid
