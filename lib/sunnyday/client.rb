@@ -5,8 +5,8 @@ module SunnyDay
   class Client
     attr_accessor :config
 
-    def initialize(config = nil)
-      @config = config.nil? ? SunnyDay::Configuration.new : config
+    def initialize(options = {})
+      @config = SunnyDay::Configuration.new(options)
     end
 
     def configure
