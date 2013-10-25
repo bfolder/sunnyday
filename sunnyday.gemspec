@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 1.8.7'
   s.add_dependency 'thor'
+  s.add_dependency 'term-ansicolor'
 end
