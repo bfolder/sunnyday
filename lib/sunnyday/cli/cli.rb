@@ -39,7 +39,7 @@ module SunnyDay
     def find(city = nil)
       return unless validate(city)
       opts = w_options(city)
-      opts[:cnt] = (options[:limit] - 1) if options[:limit]
+      opts[:cnt] = (options[:limit] - 1) if options[:limit] && options[:limit] > 0
       opts.delete(:limit) if opts.has_key?(:limit)
       data = client.find(opts)
       SunnyDay::Output.new.find(data)
