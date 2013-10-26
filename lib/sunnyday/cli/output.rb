@@ -42,6 +42,7 @@ module SunnyDay
     def has_error?(data)
       has_error = data[:cod].to_s != '200'
       error(data[:message]) if has_error
+      has_error
     end
 
     def error(message)
