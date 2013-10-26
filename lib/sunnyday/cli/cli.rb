@@ -26,7 +26,6 @@ module SunnyDay
     end
 
     desc 'd_forecast <days> <city>', 'Retrieves daily forecast for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
-
     def d_forecast(days, city = nil)
       return unless validate(city)
       opts = w_options(city)
@@ -35,18 +34,18 @@ module SunnyDay
       SunnyDay::Output.new.daily_forecast(data)
     end
 
-    option :limit, :type => :numeric
     desc 'find <city> --limit', 'Searching for city. You can provide a city name (standard) or latitude and longitude.'
+    option :limit, :type => :numeric
     def find(city = nil)
       return unless validate(city)
       opts = w_options(city)
-      opts[:cnt] = options[:limit] if options[:limit]
+      opts[:cnt] = (options[:limit] - 1) if options[:limit]
       opts.delete(:limit) if opts.has_key?(:limit)
       data = client.find(opts)
       SunnyDay::Output.new.find(data)
     end
 
-    private
+  private
 
     def validate(city)
       valid = !city.nil? || (!options[:lat].nil? && !options[:long].nil?) || !options[:id].nil?
