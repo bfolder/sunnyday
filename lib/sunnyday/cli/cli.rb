@@ -7,6 +7,9 @@ module SunnyDay
     class_option :long, :type => :numeric
     class_option :id, :type => :numeric
     class_option :units, :type => :string
+    class_option :lang, :type => :string
+    class_option :app_id, :type => :numeric
+    class_option :api_version, :type => :numeric
 
     desc 'weather <city>', 'Retrieves current weather for a specific city. You can provide a city name (standard), latitude and longitude or a city id.'
     def weather(city = nil)
@@ -37,7 +40,7 @@ module SunnyDay
     def find(city = nil)
       return unless validate(city)
       opts = w_options(city)
-      opts[:cnt] = options[:limit]
+      opts[:cnt] = options[:limit] if options[:limit]
       opts.delete(:limit) if opts.has_key?(:limit)
       data = client.find(opts)
       SunnyDay::Output.new.find(data)
