@@ -1,6 +1,20 @@
 # Readme
 
-todo... write this
+sunnyday is a ruby wrapper around the openweather.org api.
+
+Install the gem via bundler or with the command
+
+    gem install sunnyday
+
+and quickly fetch weather data, e.g. like that: 
+
+    SunnyDay::Client.new.current_weather(q: 'London, UK')
+
+There is also a CLI:
+
+    sunnyday weather London,UK 
+
+However, CLI output is still WIP.
 
 ---
 # License
